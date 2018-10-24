@@ -7,7 +7,8 @@ import {SuiModule} from 'ng2-semantic-ui';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TeamComponent } from './team/team.component';
 import { WebStorageModule } from 'ngx-store';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ng6-toastr-notifications';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,9 @@ import { WebStorageModule } from 'ngx-store';
     AppRoutingModule,
     SuiModule,
     HttpClientModule,
-    WebStorageModule
+    WebStorageModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

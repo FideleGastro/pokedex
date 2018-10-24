@@ -8,17 +8,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @SharedStorage() inputSearch = '';
+  @SharedStorage() inputSearch = {};
   title = 'pokedex';
   current = null;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.data.subscribe((data) => this.current = data);
+    this.route.data.subscribe((data) => console.log('ddd', data));
   }
 
   onSearch = (data) => {
-    this.inputSearch = data;
+    this.inputSearch = {"search": data};
   }
 }

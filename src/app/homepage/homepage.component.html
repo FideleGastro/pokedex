@@ -1,5 +1,25 @@
-<div class=" " style="text-align: right; position: relative">
-    <div style="position: fixed; margin-left: 35%; z-index: 2;" *ngIf="pokemon" >
+
+<div class="ui pointing menu">
+  <a class="item active" href="/">
+    Home
+  </a>
+  <a class="item" href="/team">
+    My team
+  </a>
+  <div class="right menu">
+    <div class="item">
+      login
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="ui search" >
+    <input (change)="searchPokemon(search.value)" #search style="width: 100%" class="prompt" type="text" placeholder="search a pokemon">
+</div>
+    <br><br>
+<div  style="text-align: right; position: relative">
+    <div style="position: fixed; z-index: 2;" *ngIf="pokemon" >
         <div class="ui cards"  style="text-align: left; " >
             <div class="card" style="">
               <div class="content">
@@ -23,7 +43,7 @@
             </div>
           </div>
       </div>
-    <div class="ui list ui segment" style="width: 50%; padding: 20px">
+    <div class="ui list ui segment" style="width: 50%; margin-left: 50%; padding: 20px">
         <div class="item" *ngFor="let pokemon of pokemons">
           <div class="content" style="text-align: left; padding: 0 10px">
             <img class="ui image" style="display: inline-block;" height="20px" src="http://icons.iconarchive.com/icons/draseart/dumper/128/PokeBall-icon.png">

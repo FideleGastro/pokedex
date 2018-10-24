@@ -37,6 +37,15 @@ app.post('/pokemon', function (req, res) {
     }
 })
 
+app.put('/pokemon', function (req, res) {
+    console.log('put: ', req.body);
+    sql = `UPDATE pokemon SET name = '${req.body.name}', type = '${req.body.type}', image = '${req.body.image}' WHERE pokemon.id = ${req.body.id}`
+    connection.query(sql), function(err, rows, fields) {
+        if (err) throw err;
+        res.json(rows);
+    }
+})
+
 app.delete('/pokemon/:id', function (req, res) {
     console.log('delete:', req.params.id);
     sql = `DELETE FROM pokemon WHERE pokemon.id = '${req.params.id}'`

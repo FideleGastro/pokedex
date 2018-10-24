@@ -13,7 +13,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~7.0.0",
+    "@angular/animations": "^7.0.0",
     "@angular/common": "~7.0.0",
     "@angular/compiler": "~7.0.0",
     "@angular/core": "~7.0.0",
@@ -28,9 +28,13 @@
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "ng2-semantic-ui": "^0.9.7",
+    "ng2-toastr": "^4.1.2",
+    "ng6-toastr-notifications": "^1.0.4",
     "ngx-store": "^2.0.0",
+    "ngx-toastr": "^9.1.1",
     "nodemon": "^1.18.4",
     "rxjs": "~6.3.3",
+    "rxjs-compat": "^6.3.3",
     "sql": "^0.78.0",
     "zone.js": "~0.8.26"
   },

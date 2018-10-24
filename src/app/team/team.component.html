@@ -1,3 +1,56 @@
+<div class="" style="width: 100%; height: 100%; position: fixed; z-index: 10; top :0;left:0;background: rgba(0, 0, 0, .9);">
+   <br><br><br>
+    <div class="content ui container card">
+        <form class="ui form" style="padding: 20px;">
+            <div class="field">
+              <label>First Name</label>
+              <input type="text" name="first-name" placeholder="First Name">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input type="text" name="last-name" placeholder="Last Name">
+            </div>
+            <div class="field">
+              <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>I agree to the Terms and Conditions</label>
+              </div>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+          </form>
+    </div>
+    <div class="actions">
+      <div class="ui red basic cancel inverted button">
+        <i class="remove icon"></i>
+        No
+      </div>
+      <div class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        Yes
+      </div>
+    </div>
+  </div>
+
+<div class="ui pointing menu">
+  <a class="item " href="/">
+    Home
+  </a>
+  <a class="item active" href="/team">
+    My team
+  </a>
+  <div class="right menu">
+    <div class="item">
+      login
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="ui search" >
+    <input (change)="searchPokemon(search.value)" #search style="width: 100%" class="prompt" type="text" placeholder="search a pokemon">
+</div>
+<br><br>
 <div class="ui three column grid">
   <div class="column" *ngFor="let pokemon of pokemons ">
     <div class="ui fluid card">
@@ -5,12 +58,14 @@
         <img src="{{pokemon.image}}">
 	  </div>
 	  <div class="extra content" style="text-align: center;">
-		<div class="ui red button" (click)="deleteMyPokemon(pokemon)">remove to my team</div>
-	</div>
+        <div class="ui two buttons">
+      <div class="ui red button" (click)="deleteMyPokemon(pokemon)">remove</div>
+    <div class="ui blue button" (click)="editMyPokemon(pokemon)">edit</div>
+        </div>
+  </div>
       <div class="content">
         <a class="header">{{pokemon.name}}</a>
       </div>
     </div>
   </div>
-  {{inputSearch}}
 </div>
