@@ -20,7 +20,7 @@ export class ApiService {
   }
 
   putFetchApi = (url, body) => {
-    return this.Http.post(url, body);
+    return this.Http.put(url, body);
   }
 
   deleteFetchApi = (url) => {

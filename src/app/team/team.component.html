@@ -14,7 +14,7 @@
                 <label>image</label>
                 <input type="text" value="{{selectedPokemon.image}}" name="image" #image  placeholder="Last Name">
               </div>
-            <button (click)="editPokemon($event)" class="ui button">Submit</button>
+            <button (click)="editPokemon($event, name.value, type.value, image.value)" class="ui button">Submit</button>
           </form>
     </div>
     <div class="actions">

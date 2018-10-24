@@ -28,13 +28,6 @@ export class TeamComponent implements OnInit {
       });
   }
 
-  deleteMyPokemon = pokemon => {
-    console.log( 'pokemon' , this.pokemons);
-    this.pokemons = this.pokemons.filter(e => e.id !== pokemon.id);
-    this.Api.deletePokemon(pokemon).subscribe();
-    this.toastr.successToastr(`remove  ${pokemon.name}`, 'Success!');
-  }
-
   searchPokemon = search => {
     this.pokemons = this.storedPokemons.filter(el => el.name.search(search) != -1);
     console.log('test:', search);
@@ -52,8 +45,18 @@ export class TeamComponent implements OnInit {
     console.log('modal:');
   }
 
-  editPokemon = (event) => {
+  editPokemon = (event, name, type, image) => {
     event.preventDefault();
-    
+    this.selectedPokemon.name = name;
+    this.selectedPokemon.type = type;
+    this.selectedPokemon.image = image;
+    this.Api.putPokemon(this.selectedPokemon).subscribe();
+    this.toastr.successToastr(`edit  ${this.selectedPokemon.name}`, 'Success!');
+  }
+
+  deletePokemon = pokemon => {
+    this.pokemons = this.pokemons.filter(e => e.id !== pokemon.id);
+    this.Api.deletePokemon(pokemon).subscribe();
+    this.toastr.successToastr(`remove  ${pokemon.name}`, 'Success!');
   }
 }
