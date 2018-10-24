@@ -1,6 +1,6 @@
 ![Image of Yaktocat](http://static.tumblr.com/5fccf1154ecada6cbc7738d5fb926b92/3hrlguc/icdn2p0i1/tumblr_static_banner.png)
 
-# Pokedex
+# Pokedex by Aries
 ### Best pokedex EU by far. GG no re.
 
 
