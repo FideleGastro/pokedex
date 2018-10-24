@@ -37,4 +37,7 @@ Front  run on `http://localhost:3000/`
 
 Server run on `http://localhost:4000/`
 
+## Big up
+
+thanks to https://pokeapi.co/ 
 
