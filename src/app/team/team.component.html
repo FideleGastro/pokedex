@@ -1,32 +1,26 @@
-<div class="" style="width: 100%; height: 100%; position: fixed; z-index: 10; top :0;left:0;background: rgba(0, 0, 0, .9);">
+<div [class]="(isModalOpen)?'':'ui modal'" style="width: 100%; height: 100%; position: fixed; z-index: 10; top :0;left:0;background: rgba(0, 0, 0, .9);">
    <br><br><br>
     <div class="content ui container card">
         <form class="ui form" style="padding: 20px;">
             <div class="field">
-              <label>First Name</label>
-              <input type="text" name="first-name" placeholder="First Name">
+              <label>name</label>
+              <input type="text" value="{{selectedPokemon.name}}" name="name" #name placeholder="First Name">
             </div>
             <div class="field">
-              <label>Last Name</label>
-              <input type="text" name="last-name" placeholder="Last Name">
+              <label>type</label>
+              <input type="text" value="{{selectedPokemon.type}}" name="type" #type  placeholder="Last Name">
             </div>
             <div class="field">
-              <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" class="hidden">
-                <label>I agree to the Terms and Conditions</label>
+                <label>image</label>
+                <input type="text" value="{{selectedPokemon.image}}" name="image" #image  placeholder="Last Name">
               </div>
-            </div>
-            <button class="ui button" type="submit">Submit</button>
+            <button (click)="editPokemon($event)" class="ui button">Submit</button>
           </form>
     </div>
     <div class="actions">
-      <div class="ui red basic cancel inverted button">
+      <div (click)="closeModal()" class="ui white ok inverted button">
         <i class="remove icon"></i>
-        No
-      </div>
-      <div class="ui green ok inverted button">
-        <i class="checkmark icon"></i>
-        Yes
+        close modal
       </div>
     </div>
   </div>
@@ -59,8 +53,8 @@
 	  </div>
 	  <div class="extra content" style="text-align: center;">
         <div class="ui two buttons">
-      <div class="ui red button" (click)="deleteMyPokemon(pokemon)">remove</div>
-    <div class="ui blue button" (click)="editMyPokemon(pokemon)">edit</div>
+      <div class="ui red button" (click)="deletePokemon(pokemon)">remove</div>
+    <div class="ui blue button" (click)="openModal(pokemon)">edit</div>
         </div>
   </div>
       <div class="content">

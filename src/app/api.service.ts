@@ -19,6 +19,10 @@ export class ApiService {
     return this.Http.post(url, body);
   }
 
+  putFetchApi = (url, body) => {
+    return this.Http.post(url, body);
+  }
+
   deleteFetchApi = (url) => {
     return this.Http.delete(url);
   }
@@ -45,6 +49,10 @@ export class ApiService {
 
   postPokemon = data => {
     return this.postFetchApi('http://localhost:4000/pokemon', data);
+  }
+
+  putPokemon = data => {
+    return this.putFetchApi('http://localhost:4000/pokemon', data);
   }
 
   deletePokemon = data => {

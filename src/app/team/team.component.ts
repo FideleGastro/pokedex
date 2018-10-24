@@ -11,8 +11,10 @@ export class TeamComponent implements OnInit {
   @SharedStorage() inputSearch = {};
   pokemons = null;
   pokemon = null;
+  selectedPokemon = null;
   storedPokemons = null;
   search = this.inputSearch;
+  isModalOpen = false;
 
   constructor(private Api: ApiService, public toastr: ToastrManager) { }
 
@@ -26,7 +28,7 @@ export class TeamComponent implements OnInit {
       });
   }
 
-  deleteMyPokemon = (pokemon) => {
+  deleteMyPokemon = pokemon => {
     console.log( 'pokemon' , this.pokemons);
     this.pokemons = this.pokemons.filter(e => e.id !== pokemon.id);
     this.Api.deletePokemon(pokemon).subscribe();
@@ -36,5 +38,22 @@ export class TeamComponent implements OnInit {
   searchPokemon = search => {
     this.pokemons = this.storedPokemons.filter(el => el.name.search(search) != -1);
     console.log('test:', search);
+  }
+
+  openModal = pokemon => {
+    this.isModalOpen = true;
+    this.selectedPokemon = pokemon;
+    console.log('modal:');
+  }
+
+  closeModal = () => {
+    this.isModalOpen = false;
+    this.selectedPokemon = null;
+    console.log('modal:');
+  }
+
+  editPokemon = (event) => {
+    event.preventDefault();
+    
   }
 }
