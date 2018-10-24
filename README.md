@@ -22,6 +22,7 @@ create database `pokemon` & import `pokemon.sql`
 ## Development server
 
 Run `npm run back`  to run node API server
+
 Run `npm run front` to run angualr 6 front 
 
 ## Start app
