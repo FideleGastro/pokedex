@@ -39,7 +39,7 @@ Server run on `http://localhost:4000/`
 
 ## Big up
 
-Thanks to https://pokeapi.co/ && Team Conceptorz
+Thanks to https://pokeapi.co/ & Team Conceptorz
 
 
 
