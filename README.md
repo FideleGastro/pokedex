@@ -17,8 +17,7 @@ var connection = mysql.createConnection({
 
 ## Database
 
-create database `pokemon`
-import `pokemon.sql` 
+create database `pokemon` & import `pokemon.sql` 
 
 ## Development server
 
