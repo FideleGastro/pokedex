@@ -6,12 +6,14 @@
 
 Change on server.js: 
 
-`var connection = mysql.createConnection({
+```
+var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'YOUR_USER_HERE',
   password : 'YOUR_PWD_HERE',
   database : 'pokemon'
-});`
+});
+```
 
 ## Database
 
