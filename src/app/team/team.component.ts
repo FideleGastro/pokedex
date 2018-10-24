@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
+import { LocalStorage, SharedStorage } from 'ngx-store';
 
 @Component({
   selector: 'app-team',
@@ -7,9 +8,11 @@ import { ApiService } from '../api.service';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-
+  @SharedStorage() inputSearch = '';
   pokemons = null;
   pokemon = null;
+  pokemonsFiltered = null;
+  search = this.inputSearch;
 
   constructor(private Api: ApiService) { }
 
@@ -17,6 +20,7 @@ export class TeamComponent implements OnInit {
     this.Api.getMyTeam().subscribe(
       data => {
         this.pokemons = data;
+        this.pokemonsFiltered = this.pokemons.filter(e => e.name.indexOf(this.inputSearch) === true);
         console.log(this.pokemons);
       }, err => {
         console.error(err);
@@ -24,6 +28,8 @@ export class TeamComponent implements OnInit {
   }
 
   deleteMyPokemon = (pokemon) => {
+    console.log( 'pokemon' , this.pokemons);
+    this.pokemons = this.pokemons.filter(e => e.id !== pokemon.id);
     this.Api.deletePokemon(pokemon).subscribe();
   }
 }

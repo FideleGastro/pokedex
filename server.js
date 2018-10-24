@@ -14,13 +14,11 @@ var connection = mysql.createConnection({
 connection.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(bodyParser.json())
 app.use(cors())
 
-
 app.get('/', function (req, res) {
-  res.send('coucoudezdf')
+  res.send('server')
 })
 
 app.get('/pokemon', function (req, res) {
@@ -35,8 +33,8 @@ app.post('/pokemon', function (req, res) {
     sql = `INSERT INTO pokemon (id, name, type, image) VALUES (NULL, '${req.body.name}' , '${req.body.type}', '${req.body.image}')`
     connection.query(sql), function(err, rows, fields) {
         if (err) throw err;
+        res.json(rows);
     }
-    res.sendStatus(200)
 })
 
 app.delete('/pokemon/:id', function (req, res) {
@@ -44,8 +42,8 @@ app.delete('/pokemon/:id', function (req, res) {
     sql = `DELETE FROM pokemon WHERE pokemon.id = '${req.params.id}'`
     connection.query(sql), function(err, rows, fields) {
         if (err) throw err;
+        res.json(rows);
     }
-    res.sendStatus(200)
 })
 
 app.listen(4000, function () {

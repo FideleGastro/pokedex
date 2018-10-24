@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {SuiModule} from 'ng2-semantic-ui';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TeamComponent } from './team/team.component';
+import { WebStorageModule } from 'ngx-store';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TeamComponent } from './team/team.component';
     BrowserModule,
     AppRoutingModule,
     SuiModule,
-    HttpClientModule
+    HttpClientModule,
+    WebStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

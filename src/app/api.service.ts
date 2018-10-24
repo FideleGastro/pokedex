@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of, Observer } from 'rxjs';
 import {Observable} from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,11 +36,7 @@ export class ApiService {
   // back
 
   getMyTeam = () => {
-    let data = this.getFetchApi('http://localhost:4000/pokemon')
-    data = new Observable((observer: Observer) => {
-      setInterval(() => observer.next(new Date().toString()), 1000);
-    });
-    return data ;
+    return this.getFetchApi('http://localhost:4000/pokemon') ;
   }
 
   countMyTeam = () => {
