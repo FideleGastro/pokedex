@@ -34,4 +34,15 @@ export class HomepageComponent implements OnInit {
         console.error(err);
       });
   }
+
+  addPokemon = (event) => {
+    event.preventDefault();
+    let pokemon = {
+      name: this.pokemon.name,
+      type: "feeferfg",
+      image: this.pokemon.sprites.front_default
+    }
+
+    this.Api.postPokemon(pokemon).subscribe();
+  }
 }

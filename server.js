@@ -1,19 +1,8 @@
-// let http = require("http");
-
-// console.log('init server');
-
-// let server = http.createServer((req, res) => {
-//     res.writeHead(200);
-//     res.end('request ok');
-// });
-
-
-// console.log('server is running');
-// server.listen(8000);
 const express = require('express');
 const app = express()
 var mysql  = require('mysql');
 var bodyParser = require('body-parser')
+var cors = require('cors')
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -27,6 +16,8 @@ connection.connect();
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
+app.use(cors())
+
 
 app.get('/', function (req, res) {
   res.send('coucoudezdf')
@@ -40,28 +31,24 @@ app.get('/pokemon', function (req, res) {
   })
 
 app.post('/pokemon', function (req, res) {
-    console.log(req.body);
-
+    console.log('post: ', req.body);
     sql = `INSERT INTO pokemon (id, name, type, image) VALUES (NULL, '${req.body.name}' , '${req.body.type}', '${req.body.image}')`
-    connection.query(sql), function(err, rows, fields) {
-    if (err) throw err;
-    }
-
-    res.sendStatus(200)
-})
-
-app.delete('/pokemon', function (req, res) {
-    console.log(req.body);
-
-    sql = ` DELETE FROM pokemon WHERE pokemon.id = ${req.body.id}`
     connection.query(sql), function(err, rows, fields) {
         if (err) throw err;
     }
-
     res.sendStatus(200)
 })
 
-app.listen(3000, function () {
-  console.log('node server is running on port 3000')
+app.delete('/pokemon/:id', function (req, res) {
+    console.log('delete:', req.params.id);
+    sql = `DELETE FROM pokemon WHERE pokemon.id = '${req.params.id}'`
+    connection.query(sql), function(err, rows, fields) {
+        if (err) throw err;
+    }
+    res.sendStatus(200)
+})
+
+app.listen(4000, function () {
+  console.log('nodemon server is running on port 4000')
 })
 

@@ -1,9 +1,9 @@
-<div class="ui segment" style="text-align: right; position: relative">
-    <div style="position: fixed;  background: chartreuse" *ngIf="pokemon" >
-        <div class="ui cards"  style="text-align: left;" >
-            <div class="card">
+<div class=" " style="text-align: right; position: relative">
+    <div style="position: fixed; margin-left: 35%; z-index: 2;" *ngIf="pokemon" >
+        <div class="ui cards"  style="text-align: left; " >
+            <div class="card" style="">
               <div class="content">
-                <img class="image" width="100%" style="border-radius: 5px; box-shadow:  inset    0px 0px 3px 0px #aaa;" src="{{pokemon.sprites.front_default}}">
+                <img class="image" width="100%" style="" src="{{pokemon.sprites.front_default}}">
                 <div class="header">
                     <div *ngFor="let type of pokemon.types">{{type.type.name}}</div>
                 </div>
@@ -17,19 +17,17 @@
                     height : {{pokemon.height}}
                 </div>
               </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui basic green button">Approve</div>
-                  <div class="ui basic red button">Decline</div>
-                </div>
+              <div class="extra content" style="text-align: center;">
+                  <div class="ui green button" (click)="addPokemon($event)">Add to my team</div>
               </div>
             </div>
           </div>
       </div>
-    <div class="ui list">
+    <div class="ui list ui segment" style="width: 50%; padding: 20px">
         <div class="item" *ngFor="let pokemon of pokemons">
-          <div class="content">
-			      <a (click)="PokemonInfo($event, pokemon.url)" href="#">{{pokemon.name}}  <img class="ui image" style="display: inline-block;" height="16px" src="http://icons.iconarchive.com/icons/draseart/dumper/128/PokeBall-icon.png"></a>
+          <div class="content" style="text-align: left; padding: 0 10px">
+            <img class="ui image" style="display: inline-block;" height="20px" src="http://icons.iconarchive.com/icons/draseart/dumper/128/PokeBall-icon.png">
+			      <a (click)="PokemonInfo($event, pokemon.url)" href="#">{{pokemon.name}}  </a>
           </div>
         </div>
   </div>

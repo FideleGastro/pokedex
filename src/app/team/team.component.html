@@ -1,0 +1,15 @@
+<div class="ui three column grid">
+  <div class="column" *ngFor="let pokemon of pokemons ">
+    <div class="ui fluid card">
+      <div class="image">
+        <img src="{{pokemon.image}}">
+	  </div>
+	  <div class="extra content" style="text-align: center;">
+		<div class="ui red button" (click)="deleteMyPokemon(pokemon)">remove to my team</div>
+	</div>
+      <div class="content">
+        <a class="header">{{pokemon.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>
