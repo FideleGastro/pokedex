@@ -39,5 +39,10 @@ Server run on `http://localhost:4000/`
 
 ## Big up
 
-thanks to https://pokeapi.co/ 
+Thanks to https://pokeapi.co/ 
+
+Best pokemon API EU by far.
+
+
+
 
